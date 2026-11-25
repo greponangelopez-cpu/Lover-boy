@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Love Message ❤️</title>
+<style>
+body {
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(135deg,#45000d,#b00032,#ff5277);
+  color:white;
+  font-family:Arial;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+}
+.card {
+  background:#ffffff20;
+  border:1px solid #ffffff70;
+  border-radius:25px;
+  padding:30px 20px;
+  width:85%;
+  max-width:380px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 0 30px #ff6688;
+}
+h1 {color:#ffd1dc;}
+.rose {font-size:65px;}
+input {
+  padding:13px;
+  width:80%;
+  border:0;
+  border-radius:20px;
+  text-align:center;
+  font-size:16px;
+}
+button {
+  padding:13px 22px;
+  margin-top:15px;
+  border:0;
+  border-radius:25px;
+  background:#ff1744;
+  color:white;
+  font-size:17px;
+}
+#result {line-height:1.7;font-size:18px;}
+.heart {
+  position:fixed;
+  top:-30px;
+  animation:fall 6s linear forwards;
+  pointer-events:none;
+}
+@keyframes fall {
+  to {transform:translateY(110vh) rotate(360deg);opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="rose">🌹</div>
+  <h1>My Love Letter ❤️</h1>
+  <p>Enter your special person's name:</p>
+
+  <input id="name" placeholder="Enter name here">
+
+  <br>
+  <button onclick="showLove()">Open My Heart 💌</button>
+
+  <h2 id="title"></h2>
+  <p id="result"></p>
+</div>
+
+<script>
+function showLove() {
+  let name = document.getElementById("name").value.trim();
+
+  if (!name) {
+    alert("Please enter a name ❤️");
+    return;
+  }
+
+  document.getElementById("title").innerText =
+    "Dear " + name + " ❤️";
+
+  document.getElementById("result").innerText =
+    "You are someone special to me. Every day becomes brighter because of your presence. I hope you always remember that you deserve happiness, love, and beautiful moments. Sending you a thousand roses! 🌹❤️";
+}
+
+setInterval(() => {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = ["❤️","🌹","💕","💗"][Math.floor(Math.random()*4)];
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = "25px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(),6000);
+},500);
+</script>
+
+</body>
+</html>
